@@ -1,3 +1,154 @@
 .SignUp {
+
+    text-align: left;
+
+    color: #535252;
+
+    height: 100%;
+    width: 100%;
+}
+
+.SignUpForm {
+
+    position: relative;
+    margin: auto;
+    padding: 10px;
+
+    height: 100%;
+    max-width: 500px;
+
+    box-sizing: border-box;
+}
+
+p {
+    font-size: 12px;
+    color: #b1b1b1;
+}
+
+label {
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.InputText:focus {
+    outline: none;
+    border-color: #3C82B9;
+    color: #777777;
+}
+
+.InputText {
+
+    display: block;
+
+    width: 93%;
+    margin: auto;
+
+    margin-top: 5px;
+    margin-bottom: 20px;
+
+    padding: 10px;
+
+    font-size: 12px;
+    font-weight: normal;
+    font-style: none;
+
+    border-radius: 4px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #d3d3d3;
+    color: #d3d3d3;
+}
+
+.row {
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.column {
+    flex: 50%;
+    box-sizing: border-box;
+}
+
+.LocalIcon {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+label span {
+
     text-align: center;
+    user-select: none;
+    pointer-events: none;
+
+    display: block;
+    margin: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#StudentInput:checked+span {
+    color: #3C82B9;
+    border: 1px solid #3C82B9;
+    stroke-linecap: square;
+    outline: auto;
+    /* ¿No debería cambiar también el fondo de youtuber? */
+    background-color: #E5EFF5;
+}
+
+#YoutuberInput:checked+span {
+    color: #C4302B;
+    border: 1px solid #C4302B;
+    stroke-linecap: square;
+    outline: auto;
+}
+
+.UserType {
+
+    display: none;
+
+    margin: auto;
+    padding-right: 10%;
+
+    background-color: rgba(100, 100, 100, 0.5);
+    border-radius: 3px;
+    border: 1px solid #cacaca;
+    color: #cacaca;
+    font-size: 15px;
+    padding: 6px 24px;
+}
+
+#createAccountBtn:hover {
+    border: 1px solid #0071c2;
+    background-color: #0071c2;
+    outline: none;
+}
+
+#createAccountBtn {
+
+    vertical-align: bottom;
+
+    width: 100%;
+    margin: auto;
+    margin-top: 150px;
+
+    height: 60px;
+
+    letter-spacing: 0.5px;
+    color: white;
+
+    padding: 5px;
+    cursor: pointer;
+
+    border-radius: 3px;
+    border: 1px solid #3C82B9;
+    background-color: #3C82B9;
+
+    font-weight: 550;
+    font-size: 18px;
 }
