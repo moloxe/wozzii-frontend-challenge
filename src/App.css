@@ -1,4 +1,4 @@
-nav {
+.App {
     text-align: center;
     background-color: #3C82B9;
 
@@ -7,11 +7,13 @@ nav {
 
     min-height: 40px;
     max-height: 50px;
+
+    font-family: defaultFont;
 }
 
 /* from: https://www.fontsquirrel.com/matcherator?token=1ufxmyf3p6sachov */
 @font-face {
-    font-family: logoFont;
+    font-family: defaultFont;
     src: url(./static/truenorg.otf);
 }
 
@@ -26,7 +28,6 @@ nav {
     margin: 0px;
     padding: 8px;
     line-height: 24px;
-    font-family: logoFont;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;

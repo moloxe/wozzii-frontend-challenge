@@ -8,7 +8,7 @@ import "./App.css";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <nav>
         <h1 className="logo">LOGO</h1>
       </nav>
