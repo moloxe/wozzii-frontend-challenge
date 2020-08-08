@@ -4,18 +4,25 @@ import SignUp from "./views/Auth/SignUp";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import "./App.css";
+
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/signup">
-          <SignUp />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </Router>
+    <div>
+      <nav>
+        <h1 className="logo">LOGO</h1>
+      </nav>
+      <Router>
+        <Switch>
+          <Route path="/signup">
+            <SignUp />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
   );
 }
 

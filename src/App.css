@@ -1,0 +1,33 @@
+nav {
+    text-align: center;
+    background-color: #3C82B9;
+
+    margin-top: 0px;
+    padding: 3px;
+
+    min-height: 40px;
+    max-height: 50px;
+}
+
+/* from: https://www.fontsquirrel.com/matcherator?token=1ufxmyf3p6sachov */
+@font-face {
+    font-family: logoFont;
+    src: url(./static/truenorg.otf);
+}
+
+.logo {
+
+    user-select: none;
+    pointer-events: none;
+
+    color: white;
+
+    letter-spacing: 1.5px;
+    margin: 0px;
+    padding: 8px;
+    line-height: 24px;
+    font-family: logoFont;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+}
