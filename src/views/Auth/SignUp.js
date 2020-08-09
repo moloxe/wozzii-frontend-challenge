@@ -4,12 +4,21 @@ import { FaUserAlt, FaYoutube } from "react-icons/fa";
 import { MdSchool } from "react-icons/md";
 import { FaCheckCircle } from "react-icons/fa";
 
+const nameRegex = /^[a-zA-Z]{3,12}$/;
+const invalidNameMessage = "The name must be between 3 and 12 characters";
+
+const lastNameRegex = /^[a-zA-Z]{3,12}$/;
+const invalidLastNameMessage =
+  "The last name must be between 3 and 12 characters";
+
 function SignUp() {
   let [userType, setUserType] = useState("");
   let [name, setName] = useState("");
   let [lastName, setLastName] = useState("");
 
   let [signedIn, setSignedIn] = useState(false);
+
+  let [errorMessage, setErrorMessage] = useState("");
 
   function updateUserType({ target }) {
     const value = target.value;
@@ -22,10 +31,47 @@ function SignUp() {
   }
 
   function signUp() {
+    if (!nameRegex.test(name)) {
+      setErrorMessage(invalidNameMessage);
+      return;
+    }
+    if (!lastNameRegex.test(lastName)) {
+      setErrorMessage(invalidLastNameMessage);
+      return;
+    }
+
     console.log(`name: ${name}`);
     console.log(`lastName: ${lastName}`);
     console.log(`userType: ${userType}`);
+
     setSignedIn(true);
+  }
+
+  function validate({ target }) {
+    const { id, value } = target;
+
+    switch (id) {
+      case "NameInput": {
+        // name validation
+        setName(value);
+
+        if (!nameRegex.test(value)) setErrorMessage(invalidNameMessage);
+        else if (errorMessage === invalidNameMessage) setErrorMessage("");
+
+        break;
+      }
+      case "LastNameInput": {
+        // last name validation
+        setLastName(value);
+
+        if (!lastNameRegex.test(value)) setErrorMessage(invalidLastNameMessage);
+        else if (errorMessage === invalidLastNameMessage) setErrorMessage("");
+
+        break;
+      }
+      default:
+        break;
+    }
   }
 
   return (
@@ -44,7 +90,7 @@ function SignUp() {
             className="InputText"
             type="text"
             placeholder="Your name..."
-            onChange={(event) => setName(event.target.value)}
+            onChange={validate}
           />
 
           <label htmlFor="LastNameInput">Last Name</label>
@@ -53,7 +99,7 @@ function SignUp() {
             className="InputText"
             type="text"
             placeholder="Your last name..."
-            onChange={(event) => setLastName(event.target.value)}
+            onChange={validate}
           />
 
           <label>I'm a</label>
@@ -91,6 +137,8 @@ function SignUp() {
               </label>
             </div>
           </div>
+
+          {errorMessage && <div className="alert">{errorMessage}</div>}
 
           <button onClick={signUp} id="createAccountBtn" type="button">
             <FaUserAlt className="LocalIcon" size="30" />

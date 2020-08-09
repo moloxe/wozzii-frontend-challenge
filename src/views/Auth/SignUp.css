@@ -97,8 +97,6 @@ label span {
     border: 1px solid #3C82B9;
     stroke-linecap: square;
     outline: auto;
-    /* ¿No debería cambiar también el fondo de youtuber? */
-    background-color: #E5EFF5;
 }
 
 #YoutuberInput:checked+span {
@@ -161,4 +159,14 @@ label span {
     font-size: 20px;
     width: 250px;
     margin: auto;
+}
+
+.alert {
+    display: block;
+    width: 93%;
+    margin: auto;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #C4302B;
+    color: white;
 }
