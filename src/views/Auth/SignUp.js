@@ -3,22 +3,26 @@ import "./SignUp.css";
 import { FaUserAlt, FaYoutube } from "react-icons/fa";
 import { MdSchool } from "react-icons/md";
 import { FaCheckCircle } from "react-icons/fa";
+import { CSSTransition } from "react-transition-group";
 
 const nameRegex = /^[a-zA-Z]{3,12}$/;
-const invalidNameMessage = "The name must be between 3 and 12 characters";
+const invalidNameMessage =
+  "The name must be between 3 and 12 alphabetic letters";
 
 const lastNameRegex = /^[a-zA-Z]{3,12}$/;
 const invalidLastNameMessage =
-  "The last name must be between 3 and 12 characters";
+  "The last name must be between 3 and 12 alphabetic letters";
 
 function SignUp() {
-  let [userType, setUserType] = useState("");
-  let [name, setName] = useState("");
-  let [lastName, setLastName] = useState("");
+  const [userType, setUserType] = useState("");
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
 
-  let [signedIn, setSignedIn] = useState(false);
+  const [signedIn, setSignedIn] = useState(false);
 
-  let [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const [showWelcomeMessage, setShowWelcomeMessage] = useState(false);
 
   function updateUserType({ target }) {
     const value = target.value;
@@ -76,7 +80,13 @@ function SignUp() {
 
   return (
     <div className="SignUp">
-      {(!signedIn && (
+      <CSSTransition
+        in={!signedIn}
+        timeout={200}
+        classNames="transition"
+        unmountOnExit
+        onExited={() => setShowWelcomeMessage(true)}
+      >
         <form className="SignUpForm">
           <h2>Tell us about you</h2>
           <p>
@@ -138,38 +148,55 @@ function SignUp() {
             </div>
           </div>
 
-          {errorMessage && <div className="alert">{errorMessage}</div>}
+          <div id="errorBox">
+            <CSSTransition
+              in={errorMessage !== ""}
+              timeout={200}
+              classNames="transition"
+              unmountOnExit
+            >
+              <div id="errorMessage">{errorMessage}</div>
+            </CSSTransition>
+          </div>
+
+          {/* {errorMessage && <div className="alert">{errorMessage}</div>} */}
 
           <button onClick={signUp} id="createAccountBtn" type="button">
             <FaUserAlt className="LocalIcon" size="30" />
             <span>Create Account</span>
           </button>
         </form>
-      )) ||
-        (signedIn && (
-          <div className="WelcomeMessage">
-            <FaCheckCircle
-              size="70px"
-              color="#3C82B9"
-              style={{ marginBottom: "20px" }}
-            />
-            <br />
-            Your{" "}
-            <span
-              style={{
-                color:
-                  userType === "youtuber"
-                    ? "#C4302B"
-                    : userType === "student"
-                    ? "#3C82B9"
-                    : "",
-              }}
-            >
-              {userType}
-            </span>{" "}
-            account have been created !
-          </div>
-        ))}
+      </CSSTransition>
+
+      <CSSTransition
+        in={showWelcomeMessage}
+        timeout={200}
+        classNames="transition"
+        unmountOnExit
+      >
+        <div className="WelcomeMessage">
+          <FaCheckCircle
+            size="70px"
+            color="#3C82B9"
+            style={{ marginBottom: "20px" }}
+          />
+          <br />
+          Your{" "}
+          <span
+            style={{
+              color:
+                userType === "youtuber"
+                  ? "#C4302B"
+                  : userType === "student"
+                  ? "#3C82B9"
+                  : "",
+            }}
+          >
+            {userType}
+          </span>{" "}
+          account have been created !
+        </div>
+      </CSSTransition>
     </div>
   );
 }
