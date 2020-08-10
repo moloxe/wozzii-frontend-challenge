@@ -1,5 +1,9 @@
 ## Wozzii frontend challenge
 
+- La fuente la encontré con un buscador de fuentes por imágen y usé la más aproximada.
+
+- Los iconos los busqué individualmente en react-icons.
+
 - Dentro del tipo de usuarios lo que pude entender es que se pueden seleccionar una de las opciones o ninguna. Por ello, si no se selecciona un tipo de usuario el saludo de bienvenida no lo menciona.
 
 - Note que el background de una opción tenía un fondo distinto. Lo dejé blanco porque la mayoría lo tenía así y a mi parecer creo que también se ve mejor.
@@ -11,9 +15,7 @@
   [Issue](https://github.com/reactjs/react-transition-group/issues/429#issuecomment-432898973)
 
 <div align="center">
-    <p style="text-align: left; font-size: 14px; background: #eb9183; border-radius: 3px; padding: 10px; width: 400px">
-    Warning: findDOMNode is deprecated in StrictMode. findDOMNode was passed an instance of Transition which is inside StrictMode. Instead, add a ref directly to the element you want to reference.
-    </p>
+    <img src="./demo.gif" width="400px"></img>
 </div>
 
 ---
